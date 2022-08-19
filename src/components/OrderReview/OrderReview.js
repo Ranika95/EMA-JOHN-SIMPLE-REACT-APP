@@ -4,7 +4,7 @@ import useCart from '../../hooks/useCart';
 import useProducts from '../../hooks/useProducts';
 import Cart from '../Cart/Cart';
 import ReviewItem from '../ReviewItem/ReviewItem';
-import { clearTheCart, removeFromDb } from '../../utilities/fakedb';
+import { removeFromDb } from '../../utilities/fakedb';
 
 const OrderReview = () => {
     const [products] = useProducts();
@@ -16,10 +16,10 @@ const OrderReview = () => {
         removeFromDb(key);
     }
 
-    const handlePlaceOrder = () =>{
-        navigate('/placeOrder');
-        setCart([]);
-        clearTheCart();
+    const handleProceedToShipping = () =>{
+        //setCart([]);
+        //clearTheCart();
+        navigate('/shipping');
     }
 
     return (
@@ -32,7 +32,7 @@ const OrderReview = () => {
             </div>
             <div className='cart-container'>
                 <Cart cart={cart}>
-                    <button onClick={handlePlaceOrder} className='btn-regular'>Place Order
+                    <button onClick={handleProceedToShipping} className='btn-regular'>Proceed to Shipping
                     </button>
                 </Cart>
             </div>
